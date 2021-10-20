@@ -2,61 +2,61 @@
 // alternative for lodash (_) fully covered with tests, which you can run with "npm run test" command
 
 // in your project you will probably use regular syntax like "export default function ... (...args) {...}"
-module.exports = function isEqual(val1, val2) {
+module.exports = function isEqual(ent1, ent2) {
   if (
-    typeof val1 !== typeof val2 ||
-    _areObjectBasedButDifferentType(val1, val2)
+    typeof ent1 !== typeof ent2 ||
+    _areObjectBasedButDifferentType(ent1, ent2)
   ) {
     return false;
   }
 
-  if (_areBothArrays(val1, val2)) {
-    if (val1.length !== val2.length) {
+  if (_areBothArrays(ent1, ent2)) {
+    if (ent1.length !== ent2.length) {
       return false;
     }
 
-    return val1.every((el, index) => isEqual(el, val2[index]));
+    return ent1.every((el, index) => isEqual(el, ent2[index]));
   }
 
-  if (_areBothObjects(val1, val2) || _areBothMaps(val1, val2)) {
-    if (Object.keys(val1).length !== Object.keys(val2).length) {
+  if (_areBothObjects(ent1, ent2) || _areBothMaps(ent1, ent2)) {
+    if (Object.keys(ent1).length !== Object.keys(ent2).length) {
       return false;
     }
 
-    return Object.keys(val1).every((key) => isEqual(val1[key], val2[key]));
+    return Object.keys(ent1).every((key) => isEqual(ent1[key], ent2[key]));
   }
 
-  if (_areBothSets(val1, val2)) {
-    const [val1Arr, val2Arr] = [Array.from(val1), Array.from(val2)];
+  if (_areBothSets(ent1, ent2)) {
+    const [ent1Arr, ent2Arr] = [Array.from(ent1), Array.from(ent2)];
 
-    if (Object.keys(val1Arr).length !== Object.keys(val2Arr).length) {
+    if (Object.keys(ent1Arr).length !== Object.keys(ent2Arr).length) {
       return false;
     }
 
-    return Object.keys(val1Arr).every((key) =>
-      isEqual(val1Arr[key], val2Arr[key])
+    return Object.keys(ent1Arr).every((key) =>
+      isEqual(ent1Arr[key], ent2Arr[key])
     );
   }
 
-  return val1 === val2;
+  return ent1 === ent2;
 }
 
 // private functions
 
-function _areBothArrays(val1, val2) {
-  return _isArray(val1) && _isArray(val2);
+function _areBothArrays(ent1, ent2) {
+  return _isArray(ent1) && _isArray(ent2);
 }
 
-function _areBothObjects(val1, val2) {
-  return _isObject(val1) && _isObject(val2);
+function _areBothObjects(ent1, ent2) {
+  return _isObject(ent1) && _isObject(ent2);
 }
 
-function _areBothSets(val1, val2) {
-  return _isSet(val1) && _isSet(val2);
+function _areBothSets(ent1, ent2) {
+  return _isSet(ent1) && _isSet(ent2);
 }
 
-function _areBothMaps(val1, val2) {
-  return _isMap(val1) && _isMap(val2);
+function _areBothMaps(ent1, ent2) {
+  return _isMap(ent1) && _isMap(ent2);
 }
 
 // utils

@@ -1,5 +1,5 @@
 # simple_is_equal_compare
-Compare two values deeply, by checking types, lenght of keys / entries (if type is object like) and finally by value
+Compare two entities/values deeply, by checking types, lenght of keys / entries (if type is object like) and finally by value
 
 Copy/paste isEqual.js file into your application and you are good to go. Tests are wrriten in jest, and they cover any usual comparation which you might wont to use.
 
