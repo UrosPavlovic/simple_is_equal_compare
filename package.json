@@ -1,0 +1,22 @@
+{
+  "name": "isequal",
+  "version": "1.0.0",
+  "description": "Simple deep compare of two values",
+  "main": "isEqual.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "isEqual",
+    "equal",
+    "deepCompare",
+    "compare",
+    "compareObjects",
+    "compareArrays"
+  ],
+  "author": "Uros Pavlovic",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
